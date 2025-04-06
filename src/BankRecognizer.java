@@ -1,3 +1,6 @@
+import java.util.Iterator;
+import java.util.List;
+
 public class BankRecognizer {
     private DogDoor door;
 
@@ -6,7 +9,7 @@ public class BankRecognizer {
     }
 
     public void recognize(Bark bark) {
+        door.equals(bark);
         System.out.println("Bank recognizing " + bark + ". ");
-        door.open();
     }
 }

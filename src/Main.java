@@ -3,8 +3,11 @@ public class Main {
 
     public static void main(String[] args) {
         DogDoor dogDoor = new DogDoor();
-        Remote remote = new Remote(dogDoor);
+        dogDoor.setAllowedBark(new Bark("Havvvv"));
+        dogDoor.setAllowedBark(new Bark("Havvvv"));
         BankRecognizer recognizer = new BankRecognizer(dogDoor);
+        Remote remote = new Remote(dogDoor);
+
 
         System.out.println("Fido barks to go outside");
         recognizer.recognize(new Bark("Havvvv"));

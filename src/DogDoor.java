@@ -1,9 +1,8 @@
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class DogDoor {
     private boolean open;
-    private Bark allowedBark;
+    private List<Bark> allowedBarks = new ArrayList<Bark>();
 
     public DogDoor() {
         open = false;
@@ -31,11 +30,21 @@ public class DogDoor {
         return open;
     }
 
-    public Bark getAllowedBark() {
-        return allowedBark;
+    public List<Bark> getAllowedBarks() {
+        return allowedBarks;
     }
 
     public void setAllowedBark(Bark allowedBark) {
-        this.allowedBark = allowedBark;
+        this.allowedBarks.add(allowedBark);
+    }
+
+    public void equals(Bark bark) {
+        List<Bark> allowedBarks = getAllowedBarks();
+        for (Iterator i = allowedBarks.iterator(); i.hasNext(); ) {
+            Bark allowedBark = (Bark) i.next();
+            if(allowedBark.equals(bark)){
+                open();
+            }
+        }
     }
 }
